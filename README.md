@@ -22,6 +22,11 @@ Retirar o uso do docker dentro do minikube:
 eval $(minikube docker-env -u)
 ```
 
+Habilitando o ingress
+
+```
+minikube addons enable ingress
+```
 ### Conceitos
 
 ###### Deployment
