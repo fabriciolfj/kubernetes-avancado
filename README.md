@@ -27,6 +27,15 @@ Habilitando o ingress
 ```
 minikube addons enable ingress
 ```
+
+### Helm
+Mecanismo para instalação de recursos dentro do kubernetes.
+``` 
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get-helm-3 > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+``` 
+
 ### Conceitos
 
 ###### Deployment
