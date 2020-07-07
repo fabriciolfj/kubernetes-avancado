@@ -1,6 +1,6 @@
 # Kubernetes
 
-Exemplos demonstrando o uso do kubernetes do básico á cenários mais complexos.
+Exemplos demonstrando o uso do kubernetes do básico á cenários mais complexos (alguns arquivos são baseados aqui https://github.com/brendandburns/kbp-sample).
 Como ambiente de estudo, utiliza-se o minikube, que pode ser instalado através do link abaixo:
 https://kubernetes.io/docs/tasks/tools/install-minikube/
 
