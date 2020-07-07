@@ -58,6 +58,9 @@ obs: reuqer um contêiner controlador para estar em execução no cluster.
 Recurso para armazenar e utilizar dados sensíveis, como usuario e senha.
 obs: devem ser criptografados em base64.
 
+###### Volumes
+É um arquivo ou diretório que pode ser montado em um contêiner em execução em um local especificado pelo usuário.
+
 ###### RBAC
 Controle de acesso baseado em função, baseia-se em dois conceitos: papel e vinculação. Um papel é um conjunto de permissões sobre recursos definidos como regras. Existem dois tipos de funções: 
 - Role, que se aplica a todos os namespaces em um cluste. 
