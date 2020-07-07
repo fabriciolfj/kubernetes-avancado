@@ -52,6 +52,7 @@ As contas de serviço fornecerem identidade aos seus microserviços. Cada conta 
 
 ##### Ingress
 Balanceador de carga, onde as requisições chegarão e serão direcionadas as services.
+obs: reuqer um contêiner controlador para estar em execução no cluster.
 
 ###### Secrets
 Recurso para armazenar e utilizar dados sensíveis, como usuario e senha.
