@@ -50,6 +50,9 @@ Isolar diferentes partes do seu cluster um do outro. Pods em execução em um na
 ###### Service accounts
 As contas de serviço fornecerem identidade aos seus microserviços. Cada conta de serviço terá certos privilégios e direitos de acesso associados à sua conta.
 
+##### Ingress
+Balanceador de carga, onde as requisições chegarão e serão direcionadas as services.
+
 ###### Secrets
 Recurso para armazenar e utilizar dados sensíveis, como usuario e senha.
 obs: devem ser criptografados em base64.
