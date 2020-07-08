@@ -2,9 +2,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: frontend-ingress
+  annotations:
+    kubernetes.io/ingress.allow-http: "false"
 spec:
   rules:
-  - http:
+  - host: teste.com
+    http:
       paths:
         - path: /api
           backend:
