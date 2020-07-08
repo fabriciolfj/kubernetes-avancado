@@ -68,3 +68,8 @@ Controle de acesso baseado em função, baseia-se em dois conceitos: papel e vin
 
 ###### Autoscaling
 Mecanismo para escalar nossos pods, conforme o uso de CPU.
+
+### Boas práticas
+
+###### Pod banco e dados
+Em serviços statefull deve-se fazer uso de um PersistentVolumes, por exemplo o ISCSI (discos baseados em numvem).
