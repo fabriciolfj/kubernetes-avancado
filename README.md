@@ -72,4 +72,4 @@ Mecanismo para escalar nossos pods, conforme o uso de CPU.
 ### Boas práticas
 
 ###### Pod banco e dados
-Em serviços statefull deve-se fazer uso de um PersistentVolumes, por exemplo o ISCSI (discos baseados em numvem).
+Em serviços statefull deve-se fazer uso de um PersistentVolumes, por exemplo o ISCSI (discos baseados em numvem).Outro ponto crie pods do tipo StatefulSet, onde este mantém uma identidade persistente para cada um de seus pods.
