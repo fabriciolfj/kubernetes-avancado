@@ -29,7 +29,7 @@ minikube addons enable ingress
 ```
 
 ### Helm
-Mecanismo para instalação de recursos dentro do kubernetes.
+Mecanismo para instalação de recursos dentro do kubernetes e alteração de configuração.
 ``` 
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get-helm-3 > get_helm.sh
 chmod 700 get_helm.sh
@@ -68,3 +68,8 @@ Controle de acesso baseado em função, baseia-se em dois conceitos: papel e vin
 
 ###### Autoscaling
 Mecanismo para escalar nossos pods, conforme o uso de CPU.
+
+### Boas práticas
+
+###### Pod banco e dados
+Em mecanismos statefull (banco de dados) deve-se fazer uso de um PersistentVolumes, por exemplo o ISCSI (discos baseados em numvem). Outro ponto, crie esses  pods do tipo StatefulSet, onde este mantém uma identidade persistente para cada um.
