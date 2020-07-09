@@ -65,6 +65,7 @@ obs: devem ser criptografados em base64.
 Controle de acesso baseado em função, baseia-se em dois conceitos: papel e vinculação. Um papel é um conjunto de permissões sobre recursos definidos como regras. Existem dois tipos de funções: 
 - Role, que se aplica a todos os namespaces em um cluste. 
 - Binding, está associando uma lista de assuntos com uma função. Existem dois tipos de vinculação: RoleBinding e ClusterRoleBinding, que correspondem a Role e ClusterRole.
+Nome do kind: RoleBinging
 
 ###### Autoscaling
 Mecanismo para escalar nossos pods, conforme o uso de CPU.
