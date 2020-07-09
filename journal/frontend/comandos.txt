@@ -1,3 +1,0 @@
-kubectl create configmap frontend-config --from-literal=journalEntries=10
-kubectl create secret generic redis-passwd --from-literal=passwd=${RANDOM}
-kubectl create configmap redis-config --from-file=launch.sh=launch.sh

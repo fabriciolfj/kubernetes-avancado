@@ -1,0 +1,190 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{},"name":"redis","namespace":"default"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"redis"}},"serviceName":"redis","template":{"metadata":{"labels":{"app":"redis"}},"spec":{"containers":[{"command":["sh","-c","/script/launch.sh"],"image":"redis:5-alpine","name":"redis","ports":[{"containerPort":6379,"name":"redis"}],"volumeMounts":[{"mountPath":"/data","name":"data"},{"mountPath":"/script/launch.sh","name":"script","subPath":"launch.sh"},{"mountPath":"/etc/redis-passwd","name":"passwd-volume"}]}],"volumes":[{"configMap":{"defaultMode":511,"name":"redis-config"},"name":"script"},{"name":"passwd-volume","secret":{"secretName":"redis-passwd"}}]}},"volumeClaimTemplates":[{"metadata":{"name":"data"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"10Gi"}}}}]}}
+  creationTimestamp: "2020-07-08T01:13:08Z"
+  generation: 3
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:podManagementPolicy: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+        f:serviceName: {}
+        f:template:
+          f:metadata: 
+            f:labels:
+              .: {}
+              f:app: {}
+          f:spec:
+            f:containers:
+              k:{"name":"redis"}:
+                .: {}
+                f:command: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":6379,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/data"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/etc/redis-passwd"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/script/launch.sh"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:subPath: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"passwd-volume"}:
+                .: {}
+                f:name: {}
+                f:secret:
+                  .: {}
+                  f:defaultMode: {}
+                  f:secretName: {}
+              k:{"name":"script"}:
+                .: {}
+                f:configMap:
+                  .: {}
+                  f:defaultMode: {}
+                  f:name: {}
+                f:name: {}
+        f:updateStrategy:
+          f:rollingUpdate:
+            .: {}
+            f:partition: {}
+          f:type: {}
+        f:volumeClaimTemplates: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-07-08T01:27:52Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:collisionCount: {}
+        f:currentRevision: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updateRevision: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2020-07-08T01:30:48Z"
+  name: redis
+  namespace: default
+  resourceVersion: "59493"
+  selfLink: /apis/apps/v1/namespaces/default/statefulsets/redis
+  uid: ce261c75-792f-42b1-b39f-2f3b475fa748
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: redis
+  serviceName: redis
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis
+    spec:
+      containers:
+      - command:
+        - sh
+        - -c
+        - /script/launch.sh
+        image: redis:5-alpine
+        imagePullPolicy: IfNotPresent
+        name: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        - mountPath: /script/launch.sh
+          name: script
+          subPath: launch.sh
+        - mountPath: /etc/redis-passwd
+          name: passwd-volume
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 511
+          name: redis-config
+        name: script
+      - name: passwd-volume
+        secret:
+          defaultMode: 420
+          secretName: redis-passwd
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      creationTimestamp: null
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+      volumeMode: Filesystem
+    status:
+      phase: Pending
+status:
+  collisionCount: 0
+  currentRevision: redis-86978c9545
+  observedGeneration: 3
+  readyReplicas: 2
+  replicas: 3
+  updateRevision: redis-6f65f5c86b
+  updatedReplicas: 3
