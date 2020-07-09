@@ -7,7 +7,7 @@ mudando de namespace: kubectl config set-context --current --namespace=monitorin
 // montando helm
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
-instalando o prometheus:  helm install prom stable/prometheus-operator (api que coleta métricas e podemos consulta-las usando a linguagem PromQL)
+instalando o prometheus:  helm install prom stable/prometheus (api que coleta métricas e podemos consulta-las usando a linguagem PromQL)
 kubectl get pods -n monitoring (namespace)
 
 kubectl --namespace monitoramento create secret generic grafana-password \
