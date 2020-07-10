@@ -50,13 +50,16 @@ Isolar diferentes partes do seu cluster um do outro. Pods em execução em um na
 ###### Service accounts
 As contas de serviço fornecerem identidade aos seus microserviços. Cada conta de serviço terá certos privilégios e direitos de acesso associados à sua conta.
 
-##### Ingress
+###### Ingress
 Balanceador de carga, onde as requisições chegarão e serão direcionadas as services.
 obs: reuqer um contêiner controlador para estar em execução no cluster.
 
 ###### Secrets
 Recurso para armazenar e utilizar dados sensíveis, como usuario e senha.
 obs: devem ser criptografados em base64.
+
+###### Etcd
+É um armazenamento de dados distribuído altamente confiável. Kubernetes usa-o para armazenar todo o estado do cluster. Em um pequeno cluster transitóiro, uma única instância de etcd pode ser executada no mesmo nó com todos os outros componentes mestres. Mas para clusters mais substanticais, é típico ter um cluster de três nós ou até mesmo de cinco nós etcd para redundância e alta disponibilidade.
 
 ###### Volumes
 É um arquivo ou diretório que pode ser montado em um contêiner em execução em um local especificado pelo usuário.
