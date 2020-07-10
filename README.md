@@ -73,6 +73,14 @@ Nome do kind: RoleBinging
 ###### Autoscaling
 Mecanismo para escalar nossos pods, conforme o uso de CPU.
 
+### Node components
+
+###### Proxy
+Faz limpeza de rede de baixo nível em cada nó.
+
+###### Kubelet
+Supervisiona a comunicação com os componentes mestres e gerencia os pods em execução.Exemplo: montagem de volume, executar contêineres no pod e etc.
+
 ### Boas práticas
 
 ###### Pod banco e dados
