@@ -95,4 +95,8 @@ sudo bash -c "echo $(minikube ip) minikube.me | tee -a /etc/hosts"
 ```
 kubectl config set-context $(kubectl config current-context) --namespace=spring
 ```
+- Apontar para docker do minikube e gerar a imagem das aplicações
+```
+eval $(minikube docker-env) ./gradlew build && docker-compose build
+```
 
