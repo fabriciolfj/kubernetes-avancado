@@ -85,3 +85,7 @@ Supervisiona a comunicação com os componentes mestres e gerencia os pods em ex
 
 ###### Pod banco e dados
 Em mecanismos statefull (banco de dados) deve-se fazer uso de um PersistentVolumes, por exemplo o ISCSI (discos baseados em numvem). Outro ponto, crie esses  pods do tipo StatefulSet, onde este mantém uma identidade persistente para cada um.
+
+### Comandos uteis
+- sudo bash -c "echo $(minikube ip) minikube.me | tee -a /etc/hosts"
+
