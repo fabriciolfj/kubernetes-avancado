@@ -1,0 +1,25 @@
+kubectl create configmap frontend-config --from-literal=journalEntries=10
+kubectl create secret generic redis-passwd --from-literal=passwd=${RANDOM}
+kubectl create configmap redis-config --from-file=launch.sh=launch.sh
+kubectl create namespace estudo
+mudando de namespace: kubectl config set-context --current --namespace=monitoring
+
+// montando helm
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo update
+instalando o prometheus:  helm install prom stable/prometheus (api que coleta métricas e podemos consulta-las usando a linguagem PromQL)
+kubectl get pods -n monitoring (namespace)
+
+kubectl --namespace monitoramento create secret generic grafana-password --from-literal=admin-user=admin --from-literal=admin-password=admin
+helm install grafana stable/grafana -f grafana.yaml --namespace monitoramento --set admin.existingSecret=grafana-password
+
+// montando a stack de logs efk
+kubectl create namespace logging
+kubectl apply -f https://raw.githubusercontent.com/dstrebel/kbp/master/elasticsearch-operator.yaml -n logging
+kubectl apply -f https://raw.githubusercontent.com/dstrebel/kbp/master/efk.yaml -n logging 
+
+
+
+Expondo o servico:  kubectl port-forward svc/prometheus-operator-159426-prometheus  9090
+
+kubectl get secret --namespace monitoramento grafana-password -o jsonpath="{.data.admin-password}" | base64 --decode ; echo RandomPassword

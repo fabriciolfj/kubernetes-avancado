@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.3.0.Final/cca16314fdcab5cae0c7de8cac1e947b1a8ba79b/mapstruct-processor-1.3.0.Final.jar" />
+        </processorPath>
+        <module name="microservices.microservices.recommendation-service.test" />
+        <module name="microservices.microservices.recommendation-service.main" />
+        <module name="microservices.microservices.review-service.test" />
+        <module name="microservices.microservices.review-service.main" />
+        <module name="microservices.microservices.product-service.test" />
+        <module name="microservices.microservices.product-service.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8" />
+  </component>
+</project>
