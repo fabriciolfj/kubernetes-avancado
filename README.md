@@ -105,4 +105,33 @@ kubectl config set-context $(kubectl config current-context) --namespace=spring
 ```
 eval $(minikube docker-env) ./gradlew build && docker-compose build
 ```
+### Instalando istio dentro de um cluster kubernetes minikube
+
+Após subir o minikube, execute os comandos abaixo:
+- curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.4 sh -
+- for i in istio-1.2.4/install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
+- kubectl apply -f istio-1.2.4/install/kubernetes/istio-demo.yaml
+- kubectl -n istio-system apply -f kubernetes/istio/setup/kiali-configmap.yml && \
+- kubectl -n istio-system delete pod -l app=kiali && \
+- kubectl -n istio-system wait --timeout=60s --for=condition=ready pod -l app=kiali
+
+Para acessar os serviços istio: 
+```
+minikube tunnel (faz com que possamos acessar os serviços do kubernetes diretamente)
+```
+Pegar o ip exposto pelo minikube tunnel: 
+```
+INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+echo "$INGRESS_HOST minikube.me" | sudo tee -a /etc/hosts
+```
+Verificar disponibilidade dos serviços: 
+```
+curl -o /dev/null -s -L -w "%{http_code}" http://ip do serviço:20001
+curl -o /dev/null -s -L -w "%{http_code}" http://ip do serviço:3000
+curl -o /dev/null -s -L -w "%{http_code}" http://ip do serviço:16686
+```
+### Configurando serviços a serem monitorados pelo istio
+```
+kubectl get deployment auth-server product product-composite recommendation review -o yaml | istioctl kube-inject -f - | kubectl apply -f -
+```
 
