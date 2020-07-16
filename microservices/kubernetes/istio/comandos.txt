@@ -1,0 +1,2 @@
+Injetando proxies istio nos nossos deployments.
+kubectl get deployment auth-server product product-composite recommendation review -o yaml | istioctl kube-inject -f - | kubectl apply -f -

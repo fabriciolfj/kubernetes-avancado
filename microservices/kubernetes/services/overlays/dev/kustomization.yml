@@ -1,5 +1,6 @@
 bases:
-- ../../base
+- ../../base/deployments
+- ../../base/istio
 resources:
 - mongodb-dev.yml
 - rabbitmq-dev.yml

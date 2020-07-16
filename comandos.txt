@@ -7,15 +7,17 @@ mudando de namespace: kubectl config set-context --current --namespace=monitorin
 // montando helm
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
-instalando o prometheus:  helm install prom stable/prometheus (api que coleta métricas e podemos consulta-las usando a linguagem PromQL)
+instalando o prometheus:
+helm install prom stable/prometheus (api que coleta métricas e podemos consulta-las usando a linguagem PromQL)
 kubectl get pods -n monitoring (namespace)
 
-kubectl --namespace monitoramento create secret generic grafana-password \
-   --from-literal=admin-user=admin --from-literal=admin-password=admin
-helm install grafana stable/grafana -f grafana.yaml --namespace monitoramento \
-  --set admin.existingSecret=grafana-password
+kubectl --namespace monitoramento create secret generic grafana-password --from-literal=admin-user=admin --from-literal=admin-password=admin
+helm install grafana stable/grafana -f grafana.yaml --namespace monitoramento --set admin.existingSecret=grafana-password
 
 
 Expondo o servico:  kubectl port-forward svc/prometheus-operator-159426-prometheus  9090
 
 kubectl get secret --namespace monitoramento grafana-password -o jsonpath="{.data.admin-password}" | base64 --decode ; echo RandomPassword
+
+Mudando de namespace
+ kubectl config set-context $(kubectl config current-context) --namespace=estudo

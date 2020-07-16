@@ -11,7 +11,7 @@ kubectl create configmap config-repo-recommendation    --from-file=config-repo/a
 kubectl create configmap config-repo-review            --from-file=config-repo/application.yml --from-file=config-repo/review.yml --save-config
 
 kubectl create secret generic rabbitmq-server-credentials \
-    --from-literal=RABBITMQ_DEFAULT_USER=rabbit-user-dwww.liev \
+    --from-literal=RABBITMQ_DEFAULT_USER=rabbit-user-dev \
     --from-literal=RABBITMQ_DEFAULT_PASS=rabbit-pwd-dev \
     --save-config
 

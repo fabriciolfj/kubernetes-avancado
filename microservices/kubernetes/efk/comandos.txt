@@ -1,0 +1,11 @@
+0 - eval $(minikube docker-env)
+1 - kubectl create namespace logging
+2 - docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:7.3.0
+3 - docker pull docker.elastic.co/kibana/kibana-oss:7.3.0
+4 - kubectl apply -f kubernetes/efk/elasticsearch.yml -n logging
+5 - kubectl apply -f kubernetes/efk/kibana.yml -n logging
+6 - docker build -f kubernetes/efk/Dockerfile -t hands-on/fluentd:v1 kubernetes/efk
+7 - kubectl apply -f kubernetes/efk/fluentd-hands-on-configmap.yml
+8 - kubectl apply -f kubernetes/efk/fluentd-ds.yml
+
+Exemplo para pesquisar dados: log:"productId=3"
