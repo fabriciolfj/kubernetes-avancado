@@ -136,3 +136,8 @@ kubectl get deployment auth-server product product-composite recommendation revi
 ```
 ### Kiali e Jeager
 Jeager utilizado para rastreamento distribuido e o Kiali coleta suas métricas para demonstrar graficamente.
+
+### EFK
+- Elastisearch: para armazenamento dos logs
+- Fluentd: para coletar os logs
+- Kibana: dashboard para manipular e visualizar os logs. obs: Utilizamos dentro do ambiente kubernetes.
