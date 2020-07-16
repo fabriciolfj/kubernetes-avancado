@@ -134,4 +134,5 @@ curl -o /dev/null -s -L -w "%{http_code}" http://ip do serviço:16686
 ```
 kubectl get deployment auth-server product product-composite recommendation review -o yaml | istioctl kube-inject -f - | kubectl apply -f -
 ```
-
+### Kiali e Jeager
+Jeager utilizado para rastreamento distribuido e o Kiali coleta suas métricas para demonstrar graficamente.
