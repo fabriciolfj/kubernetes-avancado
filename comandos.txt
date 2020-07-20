@@ -21,3 +21,5 @@ kubectl get secret --namespace monitoramento grafana-password -o jsonpath="{.dat
 
 Mudando de namespace
  kubectl config set-context $(kubectl config current-context) --namespace=estudo
+
+ 
